@@ -31,7 +31,8 @@ var board = {
       row: 0,
       col: 4,
       isMine: true,
-      hidden: true
+      hidden: true,
+      isMarked: false
     },
     {
       row: 0,
@@ -49,7 +50,8 @@ var board = {
      row: 1, 
      col: 1,
      isMine: true,
-     hidden: true
+     hidden: true,
+     isMarked: false
     },
     {
      row: 1, 
@@ -145,7 +147,8 @@ var board = {
       row: 3,
       col: 5,
       isMine: true,
-      hidden: true
+      hidden: true,
+      isMarked: false
     },
     {
       row: 4, 
@@ -211,7 +214,8 @@ var board = {
        row: 5,
        col: 4,
        isMine: true,
-       hidden: true
+       hidden: true,
+       isMarked: false
      },
      {
        row: 5,
@@ -229,6 +233,8 @@ function startGame () {
     board.cells[i].surroundingMines = counts;
     // console.log(board.cells[i].row + ',' + board.cells[i].col + ',' + board.cells[i].surroundingMines);
   }
+  document.addEventListener("click", checkForWin);
+  document.addEventListener("contextmenu", checkForWin);
   // forEach solution
   // board.cells.forEach(function(cell) {
   //     cell.surroundingMines = countSurroundingMines(cell);
@@ -247,8 +253,49 @@ function checkForWin () {
 
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
+  var mineIsMarked = false;
+  var allCellsVisible = false;
+  mineIsMarked = checkForAllMarkedOfMine(board.cells);
+  // console.log('all mines are marked: '+mineIsMarked);
+  if (mineIsMarked) {
+    allCellsVisible = checkAllCellsVisible(board.cells);
+    // console.log('all empty cell are visible: ' + allCellsVisible);
+    if (allCellsVisible) {
+      lib.displayMessage('You win!');
+    }
+  }
   //   lib.displayMessage('You win!')
 }
+
+// check if all mines has been marked.
+// if any mine has not been marked this function will return false immediatly
+// otherwise it will return true
+function checkForAllMarkedOfMine (cells) {
+  for (var i = 0; i < cells.length; i++) {
+    if (cells[i].isMine == true) {
+      if (cells[i].isMarked == false) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+// check if all empty cells are visible.
+// if any empty cell is not visible this function will return false immediatly
+// otherwise it will return true
+function checkAllCellsVisible(cells) {
+  for (var i = 0; i < cells.length; i++) {
+    if (cells[i].isMine == false) {
+      if (cells[i].hidden == true) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+
 
 // Define this function to count the number of mines around the cell
 // (there could be as many as 8). You don't have to get the surrounding
