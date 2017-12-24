@@ -257,7 +257,7 @@ function generateCells () {
       cells.push({
         row: i,
         col: j,
-        isMine: randomNum > 35 ? true : false,
+        isMine: randomNum > 31 ? true : false,
         hidden: true,
         isMarked: false
       });
