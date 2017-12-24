@@ -1,232 +1,283 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-var board = {
-  cells: [
-    {
-     row: 0, 
-     col: 0,
-     isMine: false,
-     hidden: true
-    },
-    {
-     row: 0, 
-     col: 1,
-     isMine: false,
-     hidden: true
-    },
-    {
-     row: 0, 
-     col: 2,
-     isMine: false,
-     hidden: true
-    },
-    {
-      row: 0,
-      col: 3,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 0,
-      col: 4,
-      isMine: true,
-      hidden: true,
-      isMarked: false
-    },
-    {
-      row: 0,
-      col: 5,
-      isMine: false,
-      hidden: true
-    },
-    {
-     row: 1, 
-     col: 0,
-     isMine: false,
-     hidden: true
-    },
-    {
-     row: 1, 
-     col: 1,
-     isMine: true,
-     hidden: true,
-     isMarked: false
-    },
-    {
-     row: 1, 
-     col: 2,
-     isMine: false,
-     hidden: true
-    },
-    {
-      row: 1,
-      col: 3,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 4,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 5,
-      isMine: false,
-      hidden: true
-    },
-    {
-     row: 2, 
-     col: 0,
-     isMine: false,
-     hidden: true
-    },
-    {
-     row: 2, 
-     col: 1,
-     isMine: false,
-     hidden: true
-    },
-    {
-     row: 2, 
-     col: 2,
-     isMine: false,
-     hidden: true
-    },
-    {
-      row: 2,
-      col: 3,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 4,
-      isMine: true,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 5,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 0,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 1,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 2,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 3,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 4,
-      isMine: false,
-      hidden: true
-    },
-    {
-      row: 3,
-      col: 5,
-      isMine: true,
-      hidden: true,
-      isMarked: false
-    },
-    {
-      row: 4, 
-      col: 0,
-      isMine: false,
-      hidden: true
-     },
-     {
-      row: 4, 
-      col: 1,
-      isMine: false,
-      hidden: true
-     },
-     {
-      row: 4, 
-      col: 2,
-      isMine: false,
-      hidden: true
-     },
-     {
-       row: 4,
-       col: 3,
-       isMine: false,
-       hidden: true
-     },
-     {
-       row: 4,
-       col: 4,
-       isMine: true,
-       hidden: true
-     },
-     {
-       row: 4,
-       col: 5,
-       isMine: false,
-       hidden: true
-     },
-     {
-      row: 5, 
-      col: 0,
-      isMine: false,
-      hidden: true
-     },
-     {
-      row: 5, 
-      col: 1,
-      isMine: false,
-      hidden: true
-     },
-     {
-      row: 5, 
-      col: 2,
-      isMine: false,
-      hidden: true
-     },
-     {
-       row: 5,
-       col: 3,
-       isMine: false,
-       hidden: true
-     },
-     {
-       row: 5,
-       col: 4,
-       isMine: true,
-       hidden: true,
-       isMarked: false
-     },
-     {
-       row: 5,
-       col: 5,
-       isMine: false,
-       hidden: true
-     },
-  ]
-};
+// var board = {
+//   cells: [
+//     {
+//      row: 0, 
+//      col: 0,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//      row: 0, 
+//      col: 1,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//      row: 0, 
+//      col: 2,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//       row: 0,
+//       col: 3,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 0,
+//       col: 4,
+//       isMine: true,
+//       hidden: true,
+//       isMarked: false
+//     },
+//     {
+//       row: 0,
+//       col: 5,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//      row: 1, 
+//      col: 0,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//      row: 1, 
+//      col: 1,
+//      isMine: true,
+//      hidden: true,
+//      isMarked: false
+//     },
+//     {
+//      row: 1, 
+//      col: 2,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//       row: 1,
+//       col: 3,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 1,
+//       col: 4,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 1,
+//       col: 5,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//      row: 2, 
+//      col: 0,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//      row: 2, 
+//      col: 1,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//      row: 2, 
+//      col: 2,
+//      isMine: false,
+//      hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 3,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 4,
+//       isMine: true,
+//       hidden: true
+//     },
+//     {
+//       row: 2,
+//       col: 5,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 0,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 1,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 2,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 3,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 4,
+//       isMine: false,
+//       hidden: true
+//     },
+//     {
+//       row: 3,
+//       col: 5,
+//       isMine: true,
+//       hidden: true,
+//       isMarked: false
+//     },
+//     {
+//       row: 4, 
+//       col: 0,
+//       isMine: false,
+//       hidden: true
+//      },
+//      {
+//       row: 4, 
+//       col: 1,
+//       isMine: false,
+//       hidden: true
+//      },
+//      {
+//       row: 4, 
+//       col: 2,
+//       isMine: false,
+//       hidden: true
+//      },
+//      {
+//        row: 4,
+//        col: 3,
+//        isMine: false,
+//        hidden: true
+//      },
+//      {
+//        row: 4,
+//        col: 4,
+//        isMine: true,
+//        hidden: true
+//      },
+//      {
+//        row: 4,
+//        col: 5,
+//        isMine: false,
+//        hidden: true
+//      },
+//      {
+//       row: 5, 
+//       col: 0,
+//       isMine: false,
+//       hidden: true
+//      },
+//      {
+//       row: 5, 
+//       col: 1,
+//       isMine: false,
+//       hidden: true
+//      },
+//      {
+//       row: 5, 
+//       col: 2,
+//       isMine: false,
+//       hidden: true
+//      },
+//      {
+//        row: 5,
+//        col: 3,
+//        isMine: false,
+//        hidden: true
+//      },
+//      {
+//        row: 5,
+//        col: 4,
+//        isMine: true,
+//        hidden: true,
+//        isMarked: false
+//      },
+//      {
+//        row: 5,
+//        col: 5,
+//        isMine: false,
+//        hidden: true
+//      },
+//   ]
+// };
+
+var board = {};
+var clickSound;
+var markedSound;
+var barkSound;
+var applauseSound;
+
+function loadSounds (evt) {
+  var pressedButton = evt.button;
+  if (pressedButton == 0) {
+    // play click sound
+    if (evt.target.classList.contains('mine')) {
+      barkSound.play();
+    } else {
+      clickSound.play();
+    }
+  } else {
+    // play marked sound
+    markedSound.play();
+  }
+}
+
+function generateCells () {
+  var cells = [];
+  var randomNum = 0;
+  
+  for (var i = 0; i < 6; i++) {
+    for (var j = 0; j < 6; j++) {
+      randomNum = Math.floor(Math.random() * 40);
+      cells.push({
+        row: i,
+        col: j,
+        isMine: randomNum > 30 ? true : false,
+        hidden: true,
+        isMarked: false
+      });
+      // console.log('cell is: ' + i + "," + j);
+    }
+  }
+  return cells;
+}
 
 function startGame () {
+  clickSound = new Audio();
+  clickSound.src = "sounds/click.mp3";
+  markedSound = new Audio();
+  markedSound.src = "sounds/marked.mp3";
+  barkSound = new Audio();
+  barkSound.src = "sounds/bark.mp3";
+  applauseSound = new Audio();
+  applauseSound.src = "sounds/applause.mp3";
+
+  board.cells = generateCells();
   // Don't remove this function call: it makes the game work!
   for (var i = 0; i < board.cells.length; i++) {
     var counts = countSurroundingMines(board.cells[i]);
@@ -242,7 +293,18 @@ function startGame () {
   //   }
   // );
   lib.initBoard()
-  console.log(typeof board);
+}
+
+function restartGame () {
+  var conf = confirm("Do you want to try again?");
+  if (conf == true) {
+    document.removeEventListener("click", checkForWin);
+    document.removeEventListener("contextmenu", checkForWin);
+    var bordNode = document.getElementsByClassName('board')[0];
+    bordNode.innerHTML = '';
+    startGame();
+  }
+  return;
 }
 
 // Define this function to look for a win condition:
@@ -262,6 +324,8 @@ function checkForWin () {
     // console.log('all empty cell are visible: ' + allCellsVisible);
     if (allCellsVisible) {
       lib.displayMessage('You win!');
+      // restar the game
+      setTimeout(restartGame, 1000);
     }
   }
   //   lib.displayMessage('You win!')
