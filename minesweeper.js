@@ -257,7 +257,7 @@ function generateCells () {
       cells.push({
         row: i,
         col: j,
-        isMine: randomNum > 30 ? true : false,
+        isMine: randomNum > 35 ? true : false,
         hidden: true,
         isMarked: false
       });
@@ -268,6 +268,7 @@ function generateCells () {
 }
 
 function startGame () {
+  // init sounds object
   clickSound = new Audio();
   clickSound.src = "sounds/click.mp3";
   markedSound = new Audio();
@@ -324,6 +325,7 @@ function checkForWin () {
     // console.log('all empty cell are visible: ' + allCellsVisible);
     if (allCellsVisible) {
       lib.displayMessage('You win!');
+      applauseSound.play();
       // restar the game
       setTimeout(restartGame, 1000);
     }
