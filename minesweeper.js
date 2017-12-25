@@ -1,230 +1,6 @@
 document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
-// var board = {
-//   cells: [
-//     {
-//      row: 0, 
-//      col: 0,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//      row: 0, 
-//      col: 1,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//      row: 0, 
-//      col: 2,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//       row: 0,
-//       col: 3,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 0,
-//       col: 4,
-//       isMine: true,
-//       hidden: true,
-//       isMarked: false
-//     },
-//     {
-//       row: 0,
-//       col: 5,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//      row: 1, 
-//      col: 0,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//      row: 1, 
-//      col: 1,
-//      isMine: true,
-//      hidden: true,
-//      isMarked: false
-//     },
-//     {
-//      row: 1, 
-//      col: 2,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//       row: 1,
-//       col: 3,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 1,
-//       col: 4,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 1,
-//       col: 5,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//      row: 2, 
-//      col: 0,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//      row: 2, 
-//      col: 1,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//      row: 2, 
-//      col: 2,
-//      isMine: false,
-//      hidden: true
-//     },
-//     {
-//       row: 2,
-//       col: 3,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 2,
-//       col: 4,
-//       isMine: true,
-//       hidden: true
-//     },
-//     {
-//       row: 2,
-//       col: 5,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 3,
-//       col: 0,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 3,
-//       col: 1,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 3,
-//       col: 2,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 3,
-//       col: 3,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 3,
-//       col: 4,
-//       isMine: false,
-//       hidden: true
-//     },
-//     {
-//       row: 3,
-//       col: 5,
-//       isMine: true,
-//       hidden: true,
-//       isMarked: false
-//     },
-//     {
-//       row: 4, 
-//       col: 0,
-//       isMine: false,
-//       hidden: true
-//      },
-//      {
-//       row: 4, 
-//       col: 1,
-//       isMine: false,
-//       hidden: true
-//      },
-//      {
-//       row: 4, 
-//       col: 2,
-//       isMine: false,
-//       hidden: true
-//      },
-//      {
-//        row: 4,
-//        col: 3,
-//        isMine: false,
-//        hidden: true
-//      },
-//      {
-//        row: 4,
-//        col: 4,
-//        isMine: true,
-//        hidden: true
-//      },
-//      {
-//        row: 4,
-//        col: 5,
-//        isMine: false,
-//        hidden: true
-//      },
-//      {
-//       row: 5, 
-//       col: 0,
-//       isMine: false,
-//       hidden: true
-//      },
-//      {
-//       row: 5, 
-//       col: 1,
-//       isMine: false,
-//       hidden: true
-//      },
-//      {
-//       row: 5, 
-//       col: 2,
-//       isMine: false,
-//       hidden: true
-//      },
-//      {
-//        row: 5,
-//        col: 3,
-//        isMine: false,
-//        hidden: true
-//      },
-//      {
-//        row: 5,
-//        col: 4,
-//        isMine: true,
-//        hidden: true,
-//        isMarked: false
-//      },
-//      {
-//        row: 5,
-//        col: 5,
-//        isMine: false,
-//        hidden: true
-//      },
-//   ]
-// };
 
 var board = {};
 var clickSound;
@@ -312,54 +88,73 @@ function restartGame () {
 //
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
-function checkForWin () {
+// function oldCheckForWin () {
 
-  // You can use this function call to declare a winner (once you've
-  // detected that they've won, that is!)
-  var mineIsMarked = false;
-  var allCellsVisible = false;
-  mineIsMarked = checkForAllMarkedOfMine(board.cells);
-  // console.log('all mines are marked: '+mineIsMarked);
-  if (mineIsMarked) {
-    allCellsVisible = checkAllCellsVisible(board.cells);
-    // console.log('all empty cell are visible: ' + allCellsVisible);
-    if (allCellsVisible) {
-      lib.displayMessage('You win!');
-      applauseSound.play();
-      // restar the game
-      setTimeout(restartGame, 1000);
+//   // You can use this function call to declare a winner (once you've
+//   // detected that they've won, that is!)
+//   var mineIsMarked = false;
+//   var allCellsVisible = false;
+//   mineIsMarked = checkForAllMarkedOfMine(board.cells);
+//   // console.log('all mines are marked: '+mineIsMarked);
+//   if (mineIsMarked) {
+//     allCellsVisible = checkAllCellsVisible(board.cells);
+//     // console.log('all empty cell are visible: ' + allCellsVisible);
+//     if (allCellsVisible) {
+//       lib.displayMessage('You win!');
+//       applauseSound.play();
+//       // restar the game
+//       setTimeout(restartGame, 1000);
+//     }
+//   }
+//   //   lib.displayMessage('You win!')
+// }
+
+function checkForWin () {
+  for (var i = 0; i < board.cells.length; i++) {
+    if (board.cells[i].isMine === true) {
+      // here is the logical to check a mine cell
+      if (board.cells[i].isMarked === false) {
+        return;
+      }
+    } else {
+      // here is the logical to check a empty cell
+      if (board.cells[i].hidden === true) {
+        return;
+      }
     }
   }
-  //   lib.displayMessage('You win!')
+  lib.displayMessage('You win!');
+  applauseSound.play();
+  setTimeout(restartGame, 1000);
 }
 
 // check if all mines has been marked.
 // if any mine has not been marked this function will return false immediatly
 // otherwise it will return true
-function checkForAllMarkedOfMine (cells) {
-  for (var i = 0; i < cells.length; i++) {
-    if (cells[i].isMine == true) {
-      if (cells[i].isMarked == false) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
+// function checkForAllMarkedOfMine (cells) {
+//   for (var i = 0; i < cells.length; i++) {
+//     if (cells[i].isMine == true) {
+//       if (cells[i].isMarked == false) {
+//         return false;
+//       }
+//     }
+//   }
+//   return true;
+// }
 
 // check if all empty cells are visible.
 // if any empty cell is not visible this function will return false immediatly
 // otherwise it will return true
-function checkAllCellsVisible(cells) {
-  for (var i = 0; i < cells.length; i++) {
-    if (cells[i].isMine == false) {
-      if (cells[i].hidden == true) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
+// function checkAllCellsVisible(cells) {
+//   for (var i = 0; i < cells.length; i++) {
+//     if (cells[i].isMine == false) {
+//       if (cells[i].hidden == true) {
+//         return false;
+//       }
+//     }
+//   }
+//   return true;
+// }
 
 
 
